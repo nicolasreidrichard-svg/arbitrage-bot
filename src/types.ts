@@ -38,3 +38,42 @@ export interface GasEstimate {
     estimatedGas: number; // Estimated gas required for the transaction
     gasPrice: number; // Gas price per unit
 }
+
+// TransactionState represents the lifecycle state of a blockchain transaction.
+export enum TransactionState {
+    PENDING = 'pending',
+    CONFIRMED = 'confirmed',
+    FAILED = 'failed',
+    CANCELLED = 'cancelled',
+}
+
+// TransactionRecord tracks a submitted transaction and its current state.
+export interface TransactionRecord {
+    hash: string; // Transaction hash
+    state: TransactionState; // Current state
+    nonce: number; // Nonce used for this transaction
+    timestamp: Date; // When the transaction was submitted
+    opportunity?: Opportunity; // The arbitrage opportunity that triggered this trade
+    gasUsed?: number; // Actual gas consumed (set on confirmation)
+    error?: string; // Error message if the transaction failed
+}
+
+// SwapStep describes a single hop in a multi-hop DEX swap.
+export interface SwapStep {
+    dexRouter: string; // Address of the DEX router contract
+    path: string[]; // Ordered token addresses for the swap path
+    amountIn: string; // Input amount in wei (as decimal string)
+    minAmountOut: string; // Minimum acceptable output amount in wei (slippage guard)
+    deadline: number; // Unix timestamp after which the swap is invalid
+}
+
+// TradingExecutorConfig holds configuration for the TradingExecutor.
+export interface TradingExecutorConfig {
+    rpcUrl: string; // JSON-RPC endpoint URL
+    privateKey: string; // Wallet private key (hex string)
+    maxGasPriceGwei: number; // Maximum acceptable gas price in Gwei
+    gasPriceMultiplier: number; // Multiplier applied to base gas price (e.g., 1.2)
+    confirmationBlocks: number; // Number of blocks to wait for confirmation
+    slippageTolerance: number; // Fractional slippage tolerance (e.g., 0.005 = 0.5%)
+    transactionTimeoutMs: number; // Milliseconds to wait before timing out
+}
