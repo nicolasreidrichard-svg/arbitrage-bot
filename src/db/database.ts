@@ -1,10 +1,10 @@
 // src/db/database.ts
 
 import sqlite3 from 'sqlite3';
-import { open } from 'sqlite';
+import { open, Database as SqliteDatabase } from 'sqlite';
 
 class Database {
-    db: sqlite3.Database;
+    private db!: SqliteDatabase;
 
     constructor(dbFilePath: string) {
         this.initialize(dbFilePath);
