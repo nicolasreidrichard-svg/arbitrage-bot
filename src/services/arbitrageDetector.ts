@@ -1,5 +1,9 @@
+type ExchangeRates = { [exchange: string]: { [exchange: string]: number } };
+
 class ArbitrageDetector {
-    constructor(exchangeRates) {
+    private exchangeRates: ExchangeRates;
+
+    constructor(exchangeRates: ExchangeRates) {
         this.exchangeRates = exchangeRates; // Object with rates from various exchanges
     }
 

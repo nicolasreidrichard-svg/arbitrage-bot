@@ -13,6 +13,17 @@ The Arbitrage Bot is structured into several key components:
 3. **Trading Executor**: Places orders on the exchanges based on the strategies defined by the user.
 4. **User Interface**: A web-based dashboard that allows users to configure settings and view reports.
 
+## Project Structure
+```
+arbitrage-bot/
+├── config/          # Default configuration values
+├── src/             # TypeScript source files
+│   ├── db/          # Database layer (SQLite)
+│   ├── services/    # Core bot services (price monitor, arbitrage detector, trade executor)
+│   └── utils/       # Utilities (logger)
+└── tests/           # Jest test suites
+```
+
 ## Setup Instructions
 1. **Clone the Repository**:
    ```bash
@@ -24,11 +35,37 @@ The Arbitrage Bot is structured into several key components:
    npm install
    ```
 3. **Configure Environment Variables**:
-   Create a `.env` file and set the necessary API keys and settings.
-4. **Run the Bot**:
+   ```bash
+   cp .env.example .env
+   ```
+   Edit `.env` and fill in your API keys, wallet details, and RPC URLs.
+
+4. **Build**:
+   ```bash
+   npm run build
+   ```
+
+5. **Run the Bot**:
    ```bash
    npm start
    ```
+
+## Development
+
+### Lint
+```bash
+npm run lint
+```
+
+### Test
+```bash
+npm test
+```
+
+### Build
+```bash
+npm run build
+```
 
 ## Usage Guide
 - **Starting the Bot**: After setup, run `npm start` to launch the bot.
