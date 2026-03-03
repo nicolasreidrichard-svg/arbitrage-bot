@@ -5,7 +5,7 @@ class TradeExecutor {
         // Initialize any necessary variables or services
     }
 
-    executeTrade(tradeDetails) {
+    executeTrade(tradeDetails: unknown) {
         // Logic for executing the trade
         console.log('Executing trade:', tradeDetails);
     }
@@ -15,7 +15,7 @@ class TradeExecutor {
         console.log('Optimizing gas prices...');
     }
 
-    logTransaction(transactionDetails) {
+    logTransaction(transactionDetails: unknown) {
         // Logic for logging the transaction details
         console.log('Logging transaction:', transactionDetails);
     }
