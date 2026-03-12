@@ -13,7 +13,22 @@ The Arbitrage Bot is structured into several key components:
 3. **Trading Executor**: Places orders on the exchanges based on the strategies defined by the user.
 4. **User Interface**: A web-based dashboard that allows users to configure settings and view reports.
 
-## Setup Instructions
+## Quick Setup
+
+Run the interactive setup script for a guided first-time configuration:
+
+```bash
+git clone https://github.com/nicolasreidrichard-svg/arbitrage-bot.git
+cd arbitrage-bot
+chmod +x setup.sh
+./setup.sh
+```
+
+The script handles dependency installation, `.env` creation with placeholders for
+your API keys and wallet addresses, security reminders, health checks, and
+launching the bot. See [QUICKSTART.md](QUICKSTART.md) for the full guide.
+
+## Manual Setup
 1. **Clone the Repository**:
    ```bash
    git clone https://github.com/nicolasreidrichard-svg/arbitrage-bot.git
@@ -24,10 +39,13 @@ The Arbitrage Bot is structured into several key components:
    npm install
    ```
 3. **Configure Environment Variables**:
-   Create a `.env` file and set the necessary API keys and settings.
+   ```bash
+   cp .env.example .env
+   # Edit .env with your API keys and wallet addresses
+   ```
 4. **Run the Bot**:
    ```bash
-   npm start
+   npx ts-node src/index.ts
    ```
 
 ## Usage Guide
