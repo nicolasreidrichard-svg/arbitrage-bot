@@ -1,11 +1,27 @@
 // TradeExecutor.ts
 
+export interface TradeDetails {
+    symbol: string;
+    side: 'buy' | 'sell';
+    quantity: number;
+    price: number;
+    exchange: string;
+}
+
+export interface TransactionDetails {
+    txHash: string;
+    symbol: string;
+    amount: number;
+    status: 'pending' | 'confirmed' | 'failed';
+    timestamp: Date;
+}
+
 class TradeExecutor {
     constructor() {
         // Initialize any necessary variables or services
     }
 
-    executeTrade(tradeDetails) {
+    executeTrade(tradeDetails: TradeDetails) {
         // Logic for executing the trade
         console.log('Executing trade:', tradeDetails);
     }
@@ -15,7 +31,7 @@ class TradeExecutor {
         console.log('Optimizing gas prices...');
     }
 
-    logTransaction(transactionDetails) {
+    logTransaction(transactionDetails: TransactionDetails) {
         // Logic for logging the transaction details
         console.log('Logging transaction:', transactionDetails);
     }
