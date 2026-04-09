@@ -1,5 +1,7 @@
 class ArbitrageDetector {
-    constructor(exchangeRates) {
+    private exchangeRates: Record<string, Record<string, number>>;
+
+    constructor(exchangeRates: Record<string, Record<string, number>>) {
         this.exchangeRates = exchangeRates; // Object with rates from various exchanges
     }
 
